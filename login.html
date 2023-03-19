@@ -1,0 +1,675 @@
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+<div id="container" class="container">
+	<!-- FORM SECTION -->
+	<div class="row">
+		<!-- SIGN UP -->
+		<div class="col align-items-center flex-col sign-up">
+			<div class="form-wrapper align-items-center">
+				<div class="form sign-up">
+					<form method="post" name="register">
+						{% csrf_token %}
+					<div class="input-group">
+						<i class='bx bxs-user'></i>
+						<input type="text" placeholder="Username" name="regusername" required>
+					</div>
+					<div class="input-group">
+						<i class='bx bx-mail-send'></i>
+						<input type="email" placeholder="Email" name="email" required>
+					</div>
+					<div class="input-group">
+						<i class='bx bxs-lock-alt'></i>
+						<input type="password" placeholder="Password" name="regpassword" required>
+					</div>
+					<div class="input-group">
+						<i class='bx bxs-lock-alt'></i>
+						<input type="password" placeholder="Confirm password" name="password2" required>
+					</div>
+					<button onclick="toggle()" type="submit" name="register" class="button">
+						Sign up
+					</button></form>
+					<p>
+						<span>
+							Already have an account?
+						</span>
+						<b onclick="toggle()" class="pointer">
+							Sign in here
+						</b>
+					</p>
+				</div>
+			</div>
+		
+		</div>
+		<!-- END SIGN UP -->
+		<!-- SIGN IN -->
+		<div class="col align-items-center flex-col sign-in">
+			<div class="form-wrapper align-items-center">
+				<div class="form sign-in">
+					<form method="post" name="login">
+						{% csrf_token %}
+						<div class="input-group">
+                            <i class='bx bxs-user'></i>
+						<input type="text" placeholder="Username" name="username" >
+					</div>
+					<div class="input-group">
+						<i class='bx bxs-lock-alt'></i>
+						<input type="password" placeholder="Password" name="password" >
+					</div>
+					<button name="login" type="submit" class="button"onclick="this.classList.toggle('active')">
+                        <span class="text">Sign in</span>
+                        <svg class="fingerprint fingerprint-base" xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
+                          <g class="fingerprint-out" fill="none" stroke-width="2" stroke-linecap="round">
+                            <path
+                                  class="odd" d="m 25.117139,57.142857 c 0,0 -1.968558,-7.660465 -0.643619,-13.149003 1.324939,-5.488538 4.659682,-8.994751 4.659682,-8.994751" />
+                            <path
+                                  class="odd" d="m 31.925369,31.477584 c 0,0 2.153609,-2.934998 9.074971,-5.105078 6.921362,-2.17008 11.799844,-0.618718 11.799844,-0.618718" />
+                            <path
+                                  class="odd" d="m 57.131213,26.814448 c 0,0 5.127709,1.731228 9.899495,7.513009 4.771786,5.781781 4.772971,12.109204 4.772971,12.109204" />
+                            <path
+                                  class="odd" d="m 72.334009,50.76769 0.09597,2.298098 -0.09597,2.386485" />
+                            <path
+                                  class="even" d="m 27.849282,62.75 c 0,0 1.286086,-1.279223 1.25,-4.25 -0.03609,-2.970777 -1.606117,-7.675266 -0.625,-12.75 0.981117,-5.074734 4.5,-9.5 4.5,-9.5" />
+                            <path
+                                  class="even" d="m 36.224282,33.625 c 0,0 8.821171,-7.174484 19.3125,-2.8125 10.491329,4.361984 11.870558,14.952665 11.870558,14.952665" />
+                            <path
+                                  class="even" d="m 68.349282,49.75 c 0,0 0.500124,3.82939 0.5625,5.8125 0.06238,1.98311 -0.1875,5.9375 -0.1875,5.9375" />
+                            <path
+                                  class="odd" d="m 31.099282,65.625 c 0,0 1.764703,-4.224042 2,-7.375 0.235297,-3.150958 -1.943873,-9.276886 0.426777,-15.441942 2.370649,-6.165056 8.073223,-7.933058 8.073223,-7.933058" />
+                            <path
+                                  class="odd" d="m 45.849282,33.625 c 0,0 12.805566,-1.968622 17,9.9375 4.194434,11.906122 1.125,24.0625 1.125,24.0625" />
+                            <path
+                                  class="even" d="m 59.099282,70.25 c 0,0 0.870577,-2.956221 1.1875,-4.5625 0.316923,-1.606279 0.5625,-5.0625 0.5625,-5.0625" />
+                            <path
+                                  class="even" d="m 60.901059,56.286612 c 0,0 0.903689,-9.415996 -3.801777,-14.849112 -3.03125,-3.5 -7.329245,-4.723939 -11.867187,-3.8125 -5.523438,1.109375 -7.570313,5.75 -7.570313,5.75" />
+                            <path
+                                  class="even" d="m 34.072577,68.846248 c 0,0 2.274231,-4.165782 2.839205,-9.033748 0.443558,-3.821814 -0.49394,-5.649939 -0.714206,-8.05386 -0.220265,-2.403922 0.21421,-4.63364 0.21421,-4.63364" />
+                            <path
+                                  class="odd" d="m 37.774165,70.831845 c 0,0 2.692139,-6.147592 3.223034,-11.251208 0.530895,-5.103616 -2.18372,-7.95562 -0.153491,-13.647655 2.030229,-5.692035 8.108442,-4.538898 8.108442,-4.538898" />
+                            <path
+                                  class="odd" d="m 54.391174,71.715729 c 0,0 2.359472,-5.427681 2.519068,-16.175068 0.159595,-10.747388 -4.375223,-12.993087 -4.375223,-12.993087" />
+                            <path
+                                  class="even" d="m 49.474282,73.625 c 0,0 3.730297,-8.451831 3.577665,-16.493718 -0.152632,-8.041887 -0.364805,-11.869326 -4.765165,-11.756282 -4.400364,0.113044 -3.875,4.875 -3.875,4.875" />
+                            <path
+                                  class="even" d="m 41.132922,72.334447 c 0,0 2.49775,-5.267079 3.181981,-8.883029 0.68423,-3.61595 0.353553,-9.413359 0.353553,-9.413359" />
+                            <path
+                                  class="odd" d="m 45.161782,73.75 c 0,0 1.534894,-3.679847 2.40625,-6.53125 0.871356,-2.851403 1.28125,-7.15625 1.28125,-7.15625" />
+                            <path
+                                  class="odd" d="m 48.801947,56.125 c 0,0 0.234502,-1.809418 0.109835,-3.375 -0.124667,-1.565582 -0.5625,-3.1875 -0.5625,-3.1875" />
+                          </g>
+                        </svg>
+                        <svg class="fingerprint fingerprint-active" xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
+                          <g class="fingerprint-out" fill="none" stroke-width="2" stroke-linecap="round">
+                            <path
+                                  class="odd" d="m 25.117139,57.142857 c 0,0 -1.968558,-7.660465 -0.643619,-13.149003 1.324939,-5.488538 4.659682,-8.994751 4.659682,-8.994751" />
+                            <path
+                                  class="odd" d="m 31.925369,31.477584 c 0,0 2.153609,-2.934998 9.074971,-5.105078 6.921362,-2.17008 11.799844,-0.618718 11.799844,-0.618718" />
+                            <path
+                                  class="odd" d="m 57.131213,26.814448 c 0,0 5.127709,1.731228 9.899495,7.513009 4.771786,5.781781 4.772971,12.109204 4.772971,12.109204" />
+                            <path
+                                  class="odd" d="m 72.334009,50.76769 0.09597,2.298098 -0.09597,2.386485" />
+                            <path
+                                  class="even" d="m 27.849282,62.75 c 0,0 1.286086,-1.279223 1.25,-4.25 -0.03609,-2.970777 -1.606117,-7.675266 -0.625,-12.75 0.981117,-5.074734 4.5,-9.5 4.5,-9.5" />
+                            <path
+                                  class="even" d="m 36.224282,33.625 c 0,0 8.821171,-7.174484 19.3125,-2.8125 10.491329,4.361984 11.870558,14.952665 11.870558,14.952665" />
+                            <path
+                                  class="even" d="m 68.349282,49.75 c 0,0 0.500124,3.82939 0.5625,5.8125 0.06238,1.98311 -0.1875,5.9375 -0.1875,5.9375" />
+                            <path
+                                  class="odd" d="m 31.099282,65.625 c 0,0 1.764703,-4.224042 2,-7.375 0.235297,-3.150958 -1.943873,-9.276886 0.426777,-15.441942 2.370649,-6.165056 8.073223,-7.933058 8.073223,-7.933058" />
+                            <path
+                                  class="odd" d="m 45.849282,33.625 c 0,0 12.805566,-1.968622 17,9.9375 4.194434,11.906122 1.125,24.0625 1.125,24.0625" />
+                            <path
+                                  class="even" d="m 59.099282,70.25 c 0,0 0.870577,-2.956221 1.1875,-4.5625 0.316923,-1.606279 0.5625,-5.0625 0.5625,-5.0625" />
+                            <path
+                                  class="even" d="m 60.901059,56.286612 c 0,0 0.903689,-9.415996 -3.801777,-14.849112 -3.03125,-3.5 -7.329245,-4.723939 -11.867187,-3.8125 -5.523438,1.109375 -7.570313,5.75 -7.570313,5.75" />
+                            <path
+                                  class="even" d="m 34.072577,68.846248 c 0,0 2.274231,-4.165782 2.839205,-9.033748 0.443558,-3.821814 -0.49394,-5.649939 -0.714206,-8.05386 -0.220265,-2.403922 0.21421,-4.63364 0.21421,-4.63364" />
+                            <path
+                                  class="odd" d="m 37.774165,70.831845 c 0,0 2.692139,-6.147592 3.223034,-11.251208 0.530895,-5.103616 -2.18372,-7.95562 -0.153491,-13.647655 2.030229,-5.692035 8.108442,-4.538898 8.108442,-4.538898" />
+                            <path
+                                  class="odd" d="m 54.391174,71.715729 c 0,0 2.359472,-5.427681 2.519068,-16.175068 0.159595,-10.747388 -4.375223,-12.993087 -4.375223,-12.993087" />
+                            <path
+                                  class="even" d="m 49.474282,73.625 c 0,0 3.730297,-8.451831 3.577665,-16.493718 -0.152632,-8.041887 -0.364805,-11.869326 -4.765165,-11.756282 -4.400364,0.113044 -3.875,4.875 -3.875,4.875" />
+                            <path
+                                  class="even" d="m 41.132922,72.334447 c 0,0 2.49775,-5.267079 3.181981,-8.883029 0.68423,-3.61595 0.353553,-9.413359 0.353553,-9.413359" />
+                            <path
+                                  class="odd" d="m 45.161782,73.75 c 0,0 1.534894,-3.679847 2.40625,-6.53125 0.871356,-2.851403 1.28125,-7.15625 1.28125,-7.15625" />
+                            <path
+                                  class="odd" d="m 48.801947,56.125 c 0,0 0.234502,-1.809418 0.109835,-3.375 -0.124667,-1.565582 -0.5625,-3.1875 -0.5625,-3.1875" />
+                          </g>
+                        </svg>
+                        <i class='bx bx-check ok'></i>
+                      </button>
+                    <style>
+                    .button {
+                        align-items: center;
+                        background: #000;
+                        border-radius: 45px;
+                        display: flex;
+                        height: 50px;
+                        justify-content: center;
+                        position: relative;
+                        width: 200px;
+                      }
+                      .text {
+                        color: white;
+                        position: absolute;
+                        transition: opacity 300ms;
+                        user-select: none;
+                        -moz-user-select: none;
+                    }
+                      .fingerprint {
+                        height: 80px;
+                        left: center;
+                        opacity: 0;
+                        position: absolute;
+                        stroke: #18025b;
+                        top: -15px;
+                        transition: opacity 1ms;
+                      }
+                      .fingerprint-active {
+                        stroke: #fff;
+                      }
+                      .fingerprint-out {
+                        opacity: 1;
+                      }
+                      .odd {
+                        stroke-dasharray: 0px 50px;
+                        stroke-dashoffset: 1px;
+                        transition: stroke-dasharray 1ms;
+                      }
+                      .even {
+                        stroke-dasharray: 50px 50px;
+                        stroke-dashoffset: -41px;
+                        transition: stroke-dashoffset 1ms;
+                      }
+                      .ok {
+                        opacity: 0;
+                      }
+                      .active .button {
+                        animation: 6s Container;
+                      }
+                      .active .text {
+                        opacity: 0;
+                        animation: 6s Text forwards;
+                      }
+                      .active .fingerprint {
+                        opacity: 1;
+                        transition: opacity 300ms 200ms;
+                      }
+                      .active .fingerprint-base .odd {
+                        stroke-dasharray: 50px 50px;
+                        transition: stroke-dasharray 800ms 100ms;
+                      }
+                      .active .fingerprint-base .even {
+                        stroke-dashoffset: 0px;
+                        transition: stroke-dashoffset 800ms;
+                      }
+                      .active .fingerprint-active .odd {
+                        stroke-dasharray: 50px 50px;
+                        transition: stroke-dasharray 2000ms 1500ms;
+                      }
+                      .active .fingerprint-active .even {
+                        stroke-dashoffset: 0px;
+                        transition: stroke-dashoffset 2000ms 1300ms;
+                      }
+                      .active .fingerprint-out {
+                        opacity: 0;
+                        transition: opacity 300ms 4100ms;
+                      }
+                      .active .ok {
+                        opacity: 1;
+                        animation: 6s Ok forwards;
+                        font-size: 40px;
+                      }
+                      @keyframes Container {
+                        0% { width: 200px }
+                        6% { width: 80px }
+                        71% { transform: scale(1); }
+                        75% { transform: scale(1.2); }
+                        77% { transform: scale(1); }
+                      
+                        94% { width: 80px }
+                        100% { width: 200px }
+                      }
+                      @keyframes Text {
+                        0% { opacity: 1; transform: scale(1); }
+                        6% { opacity: 0; transform: scale(0.5); }
+                      
+                        94% { opacity: 0; transform: scale(0.5); }
+                        100% { opacity: 1; transform: scale(1); }
+                      }
+                      @keyframes Ok {
+                        0% { opacity: 0 }
+                        70% { opacity: 0; transform: scale(0); }
+                        75% { opacity: 1; transform: scale(1.1); }
+                        77% { opacity: 1; transform: scale(1); }
+                        92% { opacity: 1; transform: scale(1); }
+                        96% { opacity: 0; transform: scale(0.5); }
+                        100% { opacity: 0 }
+                      }</style>
+                      <script>
+                      const button = document.querySelector('.button')
+                        button.addEventListener('animationend', () => {
+                        button.classList.remove('active');
+                        });</script></form>
+					<p>
+					</p>
+					<p>
+						<span>
+							Don't have an account?
+						</span>
+						<b onclick="toggle()" class="pointer">
+							Sign up here
+						</b>
+						
+						<p style="color: red;">{%for i in messages%}
+						{{i}}
+						{%endfor%}</p>
+					</p>
+				</div>
+			</div>
+			<div class="form-wrapper">
+	
+			</div>
+		</div>
+		<!-- END SIGN IN -->
+	</div>
+	<!-- END FORM SECTION -->
+	<!-- CONTENT SECTION -->
+	<div class="row content-row">
+		<!-- SIGN IN CONTENT -->
+		<div class="col align-items-center flex-col">
+			<div class="text sign-in">
+				<h2>
+					Welcome
+				</h2>
+
+			</div>
+			<div class="img sign-in">
+	
+			</div>
+		</div>
+		<!-- END SIGN IN CONTENT -->
+		<!-- SIGN UP CONTENT -->
+		<div class="col align-items-center flex-col">
+			<div class="img sign-up">
+			
+			</div>
+			<div class="text sign-up">
+				<h2>
+					Join with us
+				</h2>
+
+			</div>
+		</div>
+		<!-- END SIGN UP CONTENT -->
+	</div>
+	<!-- END CONTENT SECTION -->
+</div>
+
+
+<style>
+	:root {
+    --primary-color: #4EA685;
+    --secondary-color: #57B894;
+    --black: #000000;
+    --white: #ffffff;
+    --gray: #efefef;
+    --gray-2: #757575;
+
+    --facebook-color: #4267B2;
+    --google-color: #DB4437;
+    --twitter-color: #1DA1F2;
+    --insta-color: #E1306C;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100vh;
+}
+
+.col {
+    width: 50%;
+}
+
+.align-items-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.form-wrapper {
+    width: 100%;
+    max-width: 28rem;
+}
+
+.form {
+    padding: 1rem;
+    background-color: var(--white);
+    border-radius: 1.5rem;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transform: scale(0);
+    transition: .5s ease-in-out;
+    transition-delay: 0.5s;
+}
+/* .button:hover{
+    background-color: #0d0476;
+    transition: 300ms;
+}
+.button:focus{
+    transform: scale(0.01);
+} */
+.input-group {
+    position: relative;
+    width: 100%;
+    margin: 1rem 0;
+}
+
+.input-group i {
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    transform: translateY(-50%);
+    font-size: 1.4rem;
+    color: var(--gray-2);
+}
+
+.input-group input {
+    width: 100%;
+    padding: 1rem 3rem;
+    font-size: 1rem;
+    background-color: var(--gray);
+    border-radius: .5rem;
+    border: 0.125rem solid var(--white);
+    outline: none;
+}
+
+.input-group input:focus {
+    border: 0.125rem solid #695CFE;
+}
+
+.form button {
+    cursor: pointer;
+    width: 100%;
+    padding: .6rem 0;
+    border-radius: .5rem;
+    border: none;
+    background-color: #695CFE;
+    color: var(--white);
+    font-size: 1.2rem;
+    outline: none;
+}
+
+.form p {
+    margin: 1rem 0;
+    font-size: .7rem;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.social-list {
+    margin: 2rem 0;
+    padding: 1rem;
+    border-radius: 1.5rem;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transform: scale(0);
+    transition: .5s ease-in-out;
+    transition-delay: 1.2s;
+}
+
+.social-list>div {
+    color: var(--white);
+    margin: 0 .5rem;
+    padding: .7rem;
+    cursor: pointer;
+    border-radius: .5rem;
+    cursor: pointer;
+    transform: scale(0);
+    transition: .5s ease-in-out;
+}
+
+.social-list>div:nth-child(1) {
+    transition-delay: 1.4s;
+}
+
+.social-list>div:nth-child(2) {
+    transition-delay: 1.6s;
+}
+
+.social-list>div:nth-child(3) {
+    transition-delay: 1.8s;
+}
+
+.social-list>div:nth-child(4) {
+    transition-delay: 2s;
+}
+
+.social-list>div>i {
+    font-size: 1.5rem;
+    transition: .4s ease-in-out;
+}
+
+.social-list>div:hover i {
+    transform: scale(1.5);
+}
+
+.facebook-bg {
+    background-color: var(--facebook-color);
+}
+
+.google-bg {
+    background-color: var(--google-color);
+}
+
+.twitter-bg {
+    background-color: var(--twitter-color);
+}
+
+.insta-bg {
+    background-color: var(--insta-color);
+}
+
+.pointer {
+    cursor: pointer;
+	color:#695CFE;
+}
+
+.container.sign-in .form.sign-in,
+.container.sign-in .social-list.sign-in,
+.container.sign-in .social-list.sign-in>div,
+.container.sign-up .form.sign-up,
+.container.sign-up .social-list.sign-up,
+.container.sign-up .social-list.sign-up>div {
+    transform: scale(1);
+}
+
+.content-row {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 6;
+    width: 100%;
+}
+
+.text {
+    margin: 4rem;
+    color: var(--white);
+}
+
+.text h2 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin: 2rem 0;
+    transition: 1s ease-in-out;
+}
+
+.text p {
+    font-weight: 600;
+    transition: 1s ease-in-out;
+    transition-delay: .2s;
+}
+
+.img img {
+    width: 30vw;
+    transition: 1s ease-in-out;
+    transition-delay: .4s;
+}
+
+.text.sign-in h2,
+.text.sign-in p,
+.img.sign-in img {
+    transform: translateX(-250%);
+}
+
+.text.sign-up h2,
+.text.sign-up p,
+.img.sign-up img {
+    transform: translateX(250%);
+}
+
+.container.sign-in .text.sign-in h2,
+.container.sign-in .text.sign-in p,
+.container.sign-in .img.sign-in img,
+.container.sign-up .text.sign-up h2,
+.container.sign-up .text.sign-up p,
+.container.sign-up .img.sign-up img {
+    transform: translateX(0);
+}
+
+/* BACKGROUND */
+
+.container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 300vw;
+    transform: translate(35%, 0);
+    background-image: linear-gradient(-45deg, #695CFE 0%, #695CFE 100%);
+    transition: 1s ease-in-out;
+    z-index: 6;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-bottom-right-radius: max(50vw, 50vh);
+    border-top-left-radius: max(50vw, 50vh);
+}
+
+.container.sign-in::before {
+    transform: translate(0, 0);
+    right: 50%;
+}
+
+.container.sign-up::before {
+    transform: translate(100%, 0);
+    right: 50%;
+}
+
+/* RESPONSIVE */
+
+@media only screen and (max-width: 425px) {
+
+    .container::before,
+    .container.sign-in::before,
+    .container.sign-up::before {
+        height: 100vh;
+        border-bottom-right-radius: 0;
+        border-top-left-radius: 0;
+        z-index: 0;
+        transform: none;
+        right: 0;
+    }
+
+    /* .container.sign-in .col.sign-up {
+        transform: translateY(100%);
+    } */
+
+    .container.sign-in .col.sign-in,
+    .container.sign-up .col.sign-up {
+        transform: translateY(0);
+    }
+
+    .content-row {
+        align-items: flex-start !important;
+    }
+
+    .content-row .col {
+        transform: translateY(0);
+        background-color: unset;
+    }
+
+    .col {
+        width: 100%;
+        position: absolute;
+        padding: 2rem;
+        background-color: var(--white);
+        border-top-left-radius: 2rem;
+        border-top-right-radius: 2rem;
+        transform: translateY(100%);
+        transition: 1s ease-in-out;
+    }
+
+    .row {
+        align-items: flex-end;
+        justify-content: flex-end;
+    }
+
+    .form,
+    .social-list {
+        box-shadow: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .text {
+        margin: 0;
+    }
+
+    .text p {
+        display: none;
+    }
+
+    .text h2 {
+        margin: .5rem;
+        font-size: 2rem;
+    }
+}
+</style>
+<script>
+let container = document.getElementById('container')
+
+	toggle = () => {
+		container.classList.toggle('sign-in')
+		container.classList.toggle('sign-up')
+	}
+	
+	setTimeout(() => {
+		container.classList.add('sign-in')
+	}, 200)</script>

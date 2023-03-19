@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+  <!-- Coding by CodingLab | www.codinglabweb.com -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NGIGT - New Generation Informatin Gathering Tool</title>
+    <!----======== CSS ======== -->
+    
+    <!----===== Boxicons CSS ===== -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://code.iconify.design/iconify-icon/1.0.5/iconify-icon.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <!--<title>Dashboard Sidebar Menu</title>--> 
+</head>
+{% if x == 'home'%}
+<div id="container" class="container">
+    <div id="container2" class="container2">
+{%endif%}    
+    <style>
+    :root {
+    --primary-color: #4EA685;
+    --secondary-color: #57B894;
+    --black: #000000;
+    --white: #ffffff;
+    --gray: #efefef;
+    --gray-2: #757575;
+
+    --facebook-color: #4267B2;
+    --google-color: #DB4437;
+    --twitter-color: #1DA1F2;
+    --insta-color: #E1306C;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100vh;
+
+}
+
+.container {
+    position: relative;
+    min-height: 100vh;
+overflow: hidden;
+
+}
+
+.container2 {
+    position: relative;
+    min-height: 100vh;
+
+
+}
+
+/* BACKGROUND */
+
+.container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0%;
+    height: 100vh;
+    width: 300vw;
+    transform: translate(35%, 0);
+    background-image: linear-gradient(-45deg, #695CFE 0%, #695CFE 100%);
+    transition: 1s ease-in-out;
+    z-index: 100;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-bottom-right-radius: max(50vw, 50vh);
+    border-top-left-radius: max(50vw, 50vh);
+}
+.container2::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 300vw;
+    transform: translate(35%, 0);
+    background-image: linear-gradient(-45deg, #695CFE 0%, #695CFE 100%);
+    transition: 1s ease-in-out;
+    z-index: 1001;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-bottom-right-radius: max(50vw, 50vh);
+    border-top-left-radius: max(50vw, 50vh);
+}
+
+.container.sign-in::before {
+    transform: translate(100%, 0);
+    right: 0%;
+}
+.container2.sign-in::before {
+    transform: translate(0, 0);
+    right: 100%;
+}</style>
+<script>let container = document.getElementById('container')
+        let container2 = document.getElementById('container2')
+
+    design = () => {
+        container.classList.design('sign-in')
+        container2.classList.design('sign-in')
+    }
+    
+    setTimeout(() => {
+        container.classList.add('sign-in')
+        container2.classList.add('sign-in')
+    }, 200)</script>
+    <body>
+    
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <i class='bx bx-user-circle icon'></i>
+                    
+                </span>
+                
+                <div class="text logo-text">
+                    <span class="username">{{user.username}}</span>
+                    <span class="name">{{user.first_name}}</span>
+                </div>
+            </div>
+
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+
+                
+
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="/" title="Home">
+                            <i class='bx bx-home-alt icon' ></i>
+                            &nbsp;&nbsp;
+                            <span class="text nav-text">Home</span>
+                        </a>
+                    </li>
+                
+                    <li class="nav-link">
+                        <a href="subdomain_finder" title="Subdomain Finder">
+                            <i class='bx bx-layer icon'></i>
+                            &nbsp;&nbsp;
+                            <span class="text nav-text">Subdomain Finder </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="nav-link">
+                        <a href="dns_search" title="DNS Search">
+                            <i class='bx bx-globe icon' ></i>
+                            &nbsp;&nbsp;
+                            <span class="text nav-text">DNS Search </span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="whois_search" title="Whois Search">
+                            <i class='bx bxs-file-find icon'></i>
+                            &nbsp;&nbsp;
+                            <span class="text nav-text">Whois Search</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="netcraft" title="Netcraft Search">
+                            <i class='bx bx-code-alt icon'></i>
+                            &nbsp;&nbsp;
+                            <span class="text nav-text">Netcraft Search</span>
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <div class="bottom-content">
+                <li class="nav-link">
+                    <a href="about_creators" title="About Creators">
+                        <i class='bx bx-info-circle icon'></i>
+                        <span class="text nav-text">About Creators</span>
+                    </a>
+                </li>
+
+                <li class="nav-link">
+                    <a href="download" title="Download App">
+                        <i class='bx bx-download icon'></i>
+                        <span class="text nav-text">Download our app</span>
+                    </a>
+                </li>
+                {% if user.is_authenticated %}
+                <li class="">
+                    <a href="logout" title="Logout">
+                        <i class='bx bx-log-out icon' ></i>
+                        <span class="text nav-text">Logout</span>
+                    </a>
+                </li>
+                {% endif %}
+            </div>
+        </div>
+
+    </nav>
+    {% if user.is_authenticated %}
+    <section class="home"><br>
+        {% if x != 'home' and x != 'about_creators' %}
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div style="display: flex;justify-content: space-between;width: 255px;margin-left: 48%;">
+            <input type="text" name="search" placeholder="Enter host..." class="searchBox"
+            style="height: 40px;width: 200px;background-color: var(--primary-color-light);color: var(--text-color);font-size: 17px;font-weight: 500;transition: var(--tran-05);padding-left: 10px">
+            <button type="submit" class="searchBtn" style="cursor: pointer;transition: var(--tran-05);width: 50px;height: 40px;"><i class='bx bx-search'></i>
+            <style>
+                .searchBox{
+                    border: none;
+                    border-radius: 6px;
+                }
+                .searchBox:focus{
+                    border: none;
+                }
+                .searchBox:hover{
+                    border: 1px solid;
+                }
+                .searchBtn{
+                    background-color: #f6f5ff;
+                    border: none;
+                    border-radius: 6px
+                }
+                .searchBtn:hover{
+                    border: 1px solid;
+                }
+                .searchBtn:focus{
+                    border: 2px solid;
+                }
+            </style>
+            </button></div>
+        <br>{%endif%}
+        {% if x == 'home' %}
+        <p style="font-size:20px;margin-left: 240px;max-width:900px;text-align: center;border: 1px solid;border-radius: 10px;">Welcome our <b> NGIGT - New Generation Information Gathering Tool. </b> You can use our tools for completely free. To do this, select the tool you want using the sidebar on the left.</p>
+        <br><br><h2 style="margin-left: 40px;color: #695CFE;">What is Information Gathering?</h2>
+        <p style="font-size:20px;margin-left: 50px;">Information Gathering means gathering different kinds of information about the target. It is basically, the first step or the beginning stage of Ethical Hacking, where the penetration testers or hackers (both black hat or white hat) tries to gather all the information about the target, in order to use it for Hacking.</p>
+        <br><br><h2 style="margin-left: 40px;color: #695CFE;">What is the purpose of information gathering?</h2>
+        <p style="font-size:20px;margin-left: 50px;">The main purpose of gathering information is to determine the information requirements of an organization or users. Information gathering strategy should be evolved by the analyst to gather information.</p>
+        {% endif %}
+        {% if x == 'subdomain_finder' %}
+        {% if not data %}
+        <p style="margin-left: 50px;font-size: 20px;"> You can use it by uploading your own wordlist. Don't worry if you don't have one.
+            We are giving you 3 wordlist of 10000, 50000 and 100000 words. 
+            Choose wordlist_1, 2 or 3 below.</p><br><br>
+        <div style="display: flex;align-items: center;justify-content: space-around;">
+        <label for="images" class="drop-container">
+            <span class="drop-title">Drop files here</span>OR
+            <input type="file" id="images" name="file" accept="text/*">
+            <style>.drop-container {
+                position: relative;
+                width: 500px;
+                display: flex;
+                gap: 10px;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: 180px;
+                padding: 20px;
+                border-radius: 10px;
+                border: 2px dashed #555;
+                color: #444;
+                cursor: pointer;
+                transition: background .2s ease-in-out, border .2s ease-in-out;
+              }
+              
+              .drop-container:hover {
+                background: #695CFE;
+                border-color: #111;
+              }
+              
+              .drop-container:hover .drop-title {
+                color: #222;
+              }
+              
+              .drop-title {
+                color: #444;
+                font-size: 20px;
+                font-weight: bold;
+                text-align: center;
+                transition: color .2s ease-in-out;
+              }
+                input[type=file] {
+                width: 350px;
+                max-width: 100%;
+                color: #444;
+                padding: 5px;
+                background: #fff;
+                border-radius: 10px;
+                border: 1px solid #555;
+                }
+
+                input[type=file]::file-selector-button {
+                margin-right: 20px;
+                border: none;
+                background: #695CFE;
+                padding: 10px 20px;
+                border-radius: 10px;
+                color: #fff;
+                cursor: pointer;
+                transition: background .2s ease-in-out;
+                }
+
+                input[type=file]::file-selector-button:hover {
+                background: #695CFE;
+}</style></label>
+            <p style="font-size: 50px;">OR</p>
+        <div>
+            <p> Choose and use one of our wordlists.<br> (3 is a Russian wordlist)</p>
+        <select name="wordlst" style="height: 50px;border-radius: 10px;">
+            <option value="" selected disabled hidden>Choose here</option>
+            <option value="wordlist_1">wordlist_1</option>
+            <option value="wordlist_2">wordlist_2</option>
+            <option value="wordlist_3">wordlist_3</option>
+        </select></div>
+    </div><br><br><br><br><br>
+        <div style="margin-left: 50px;color: brown;">A large wordlists will cause more time consumption. If the page loads slowly, you can try splitting the wordlist into smaller parts and scanning in parts.</div>
+          {%endif%}
+        </form>
+            {% if data %}
+            <div class = 'text' style="margin-left: 30px;font-size:20px;border-radius: 10px;border: 1px solid;width: auto;height: auto;justify-content: center">
+                {{data|linebreaksbr}}
+            </div>
+            {% endif %}
+        {% elif x == 'dns' %}
+        
+            {% if data %}
+            <div class = 'text' style="margin-left: 30px;font-size:20px;border: 1px solid;border-radius: 10px;width: auto;height: auto;justify-content: center">
+                {{data|linebreaksbr}} <br></div>
+            {%else%}
+            <h2 style="margin-left: 50px;color: #695CFE;">What is DNS?</h2>
+            <p style="margin-left: 50px;font-size: 20px;">Domain Name System (DNS) servers map domain names to Internet Protocol (IP) addresses. When used in conjunction with search domains, they allow you to go quickly to websites and servers you visit frequently without typing the complete address.For example, if you specify the search domain apple.com, typing “store” in your web browser takes you to store.apple.com. Or, if you use campus.university.edu as a search domain, you can type “server1” in the Connect To Server dialog in the Finder to connect to server1.campus.university.edu.</p>
+            <br><br>
+            <h2 style="margin-left: 50px;color: #695CFE;">What is a DNS record?</h2>
+                <p style="margin-left: 50px;font-size: 20px;">DNS records (aka zone files) are instructions that live in authoritative DNS servers and provide information about a domain including what IP address is associated with that domain and how to handle requests for that domain.</p>
+            {%endif%}
+        
+        {% elif x == 'whois' %}
+        {% if data %}
+        <div class = 'text' style="margin-left: 30px;font-size:20px;border-radius: 10px;border: 1px solid;width: auto;height: auto;justify-content: center">
+            {{data|linebreaksbr}}</div>
+        {%else%}
+        <h2 style="margin-left: 50px;color: #695CFE;">What is a Whois?</h2>
+        <p style="margin-left: 50px;font-size: 20px;">Whois is a widely used Internet record listing that identifies who owns a domain and how to get in contact with them. The Internet Corporation for Assigned Names and Numbers (ICANN) regulates domain name registration and ownership. Whois records have proven to be extremely useful and have developed into an essential resource for maintaining the integrity of the domain name registration and website ownership process.</p>
+        <br><br>
+        <h2 style="margin-left: 50px;color: #695CFE;">Whois Privacy.</h2>
+        <p style="margin-left: 50px;font-size: 20px;">It is important to note that there is no way to hide the existence of a domain registration since anyone can check Whois to confirm the status of a domain. The Internet Corporation for Assigned Names and Numbers (ICANN) requires that the contact information of those who own and manage a domain name to be made publicly available via Whois directories. This includes mailing addresses, phone numbers and email addresses.</p>
+        {%endif%}
+        {% elif x == 'netcraft' %}
+        {% if data %}
+            <div class = 'text' style="margin-left: 30px;font-size:20px;border-radius: 10px;border: 1px solid;width: auto;height: auto;justify-content: center">
+                {{data|linebreaksbr}}
+            </div>
+            {%else%}
+            <h2 style="margin-left: 50px;color: #695CFE;">What is a Netcraft?</h2>
+        <p style="margin-left: 50px;font-size: 20px;">Netcraft is an Internet services company based in Bath, England which provides Internet research data mining and security services, including anti-fraud and anti-phishing services, application testing, code reviews, and automated penetration testing to clients worldwide.Netcraft provides internet security services for a large number of use cases, including cybercrime detection and disruption, application testing and PCI scanning.</p>
+        <br><br>
+        <h2 style="margin-left: 50px;color: #695CFE;">What type of information gathering tool is Netcraft tool?</h2>
+        <p style="margin-left: 50px;font-size: 20px;">Explanation. Netcraft tool determine the operating system and web server type of a target machine. Edit: Netcraft is a browser toolbar and website that can be used to gather information about a website, to include the host server OS.</p>
+            {% endif %}
+        {% elif x == 'about_creators' %}
+        <br><br><br>
+            <div style="font-size:20px;margin-left: 280px;">This site has been created by <b><p style="color: #695CFE;">DDOS_lar team</p></b> for <span style="text-decoration: underline;">Winter Cyber Camp.</span>  You can contact us through Instagram or Mail.ru.</div>    
+            <a href="https://www.instagram.com/ngigt2023/" style="font-size:20px;margin-left: calc(280px);">Our Instagram</a> 
+            <a href="mailto:ngigt@mail.ru"style="font-size:20px;">Mail.ru</a>
+        {% endif %}
+        {% else %}
+        <br><br><br>
+        <div class = 'text' style="font-size:20px;margin-left: calc(280px);">You can't use this tool without login.</div>
+        <a href="login" style="font-size:20px;margin-left: calc(280px);">Go to login</a>
+    {% endif %}
+    </section>
+    
+    <style>/* Google Font Import - Poppins */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        :root{
+            /* ===== Colors ===== */
+            --body-color: #E4E9F7;
+            --sidebar-color: #FFF;
+            --primary-color: #695CFE;
+            --primary-color-light: #F6F5FF;
+            --toggle-color: #DDD;
+            --text-color: #707070;
+        
+            /* ====== Transition ====== */
+            --tran-03: all 0.2s ease;
+            --tran-03: all 0.3s ease;
+            --tran-04: all 0.3s ease;
+            --tran-05: all 0.3s ease;
+        }
+        
+        body{
+            min-height: 100vh;
+            background-color: var(--body-color);
+            transition: var(--tran-05);
+        }
+        
+        ::selection{
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+        
+        
+        
+        /* ===== Sidebar ===== */
+         .sidebar{
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 270px;
+            padding: 10px 14px;
+            background: var(--sidebar-color);
+            transition: var(--tran-05);
+            z-index: 100;  
+        }
+        .sidebar.close{
+            width: 88px;
+        }
+        
+        /* ===== Reusable code - Here ===== */
+        .sidebar li{
+            height: 50px;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+        
+        .sidebar header .image,
+        .sidebar .icon{
+            min-width: 60px;
+            border-radius: 6px;
+        }
+        
+        .sidebar .icon{
+            min-width: 60px;
+            border-radius: 6px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+        }
+        
+        .sidebar .text,
+        .sidebar .icon{
+            color: var(--text-color);
+            transition: var(--tran-03);
+        }
+        
+        .sidebar .text{
+            font-size: 17px;
+            font-weight: 500;
+            white-space: nowrap;
+            opacity: 1;
+        }
+        .sidebar.close .text{
+            opacity: 0;
+        }
+        /* =========================== */
+        
+        .sidebar header{
+            position: relative;
+        }
+        
+        .sidebar header .image-text{
+            display: flex;
+            align-items: center;
+        }
+        .sidebar header .logo-text{
+            display: flex;
+            flex-direction: column;
+        }
+        header .image-text .name {
+            margin-top: 2px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        header .image-text .profession{
+            font-size: 16px;
+            margin-top: -2px;
+            display: block;
+        }
+        
+        .sidebar header .image{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .sidebar header .image img{
+            width: 40px;
+            border-radius: 6px;
+        }
+        
+        .sidebar header .toggle{
+            position: absolute;
+            top: 80px;
+            right: -25px;
+            transform: translateY(-50%) rotate(180deg);
+            height: 40px;
+            width: 40px;
+            background-color: var(--primary-color);
+            color: var(--sidebar-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            cursor: pointer;
+            transition: var(--tran-05);
+        }
+        
+        
+        
+        .sidebar.close .toggle{
+            transform: translateY(-50%) rotate(0deg);
+        }
+        
+        .sidebar .menu{
+            margin-top: 40px;
+        }
+        
+        
+        .sidebar li a{
+            list-style: none;
+            height: 100%;
+            background-color: transparent;
+            display: flex;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: var(--tran-03);
+        }
+        
+        .sidebar li a:hover{
+            background-color: var(--primary-color);
+        }
+        .sidebar li a:hover .icon,
+        .sidebar li a:hover .text{
+            color: var(--sidebar-color);
+        }
+        
+        
+        .sidebar .menu-bar{
+            height: calc(100% - 55px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow-y: scroll;
+        }
+        .menu-bar::-webkit-scrollbar{
+            display: none;
+        }
+        .sidebar .menu-bar .mode{
+            border-radius: 6px;
+            background-color: var(--primary-color-light);
+            position: relative;
+            transition: var(--tran-05);
+        }
+        
+        
+        
+        
+        .menu-bar .bottom-content .toggle-switch{
+            position: absolute;
+            right: 0;
+            height: 100%;
+            min-width: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        .toggle-switch .switch{
+            position: relative;
+            height: 22px;
+            width: 40px;
+            border-radius: 25px;
+            background-color: var(--toggle-color);
+            transition: var(--tran-05);
+        }
+        
+        .switch::before{
+            content: '';
+            position: absolute;
+            height: 15px;
+            width: 15px;
+            border-radius: 50%;
+            top: 50%;
+            left: 5px;
+            transform: translateY(-50%);
+            background-color: var(--sidebar-color);
+            transition: var(--tran-04);
+        }
+        
+        
+        .home{
+            position: absolute;
+            top: 0;
+            top: 0;
+            left: 250px;
+            height: 100vh;
+            width: calc(100% - 250px);
+            background-color: var(--body-color);
+            transition: var(--tran-05);
+        }
+        .home .text{
+            font-size: 30px;
+            font-weight: 500;
+            color: var(--text-color);
+            padding: 12px 60px;
+        }
+        
+        .sidebar.close ~ .home{
+            left: 100px;
+            height: 100vh;
+            width: calc(100%-100px);
+        }
+        
+        </style>
+    <script>
+      const body = document.querySelector('body'),
+      sidebar = body.querySelector('nav'),
+      toggle = body.querySelector(".toggle"),
+      searchBtn = body.querySelector(".search-box"),
+      modeSwitch = body.querySelector(".toggle-switch"),
+      modeText = body.querySelector(".mode-text");
+
+toggle.addEventListener("click" , () =>{
+    sidebar.classList.toggle("close");
+})
+    </script>
+
+</body></div></div>
+</html>
